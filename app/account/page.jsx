@@ -1,10 +1,10 @@
 import React from "react";
 
-// export const metadata = {
-//   title: { template: "%s | User Profile", default: "The Wild Oasis" },
-// };
+export const metadata = {
+  title: "Guest Area",
+};
 
-export default function AccountPage() {
+export default function Account() {
   return (
     <div>
       <h1>Accounts Page</h1>
