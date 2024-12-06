@@ -1,5 +1,4 @@
 import Image from "next/image";
-import bgImage from "@/public/bg.png";
 
 export default function Home() {
   return (
