@@ -131,6 +131,8 @@ export async function getBookedDatesByCabinId(cabinId) {
 
 export async function getSettings() {
   const { data, error } = await supabase.from("settings").select("*").single();
+  //For testing
+  // await new Promise((res) => setTimeout(res, 2000));
 
   if (error) {
     console.error(error);
