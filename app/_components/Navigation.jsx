@@ -3,7 +3,6 @@ import { auth } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function Navigation() {
   const session = await auth();
-  // console.log(user);
 
   return (
     <nav className="z-10 text-xl">
