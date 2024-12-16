@@ -4,6 +4,7 @@ import { createGuest, getGuest } from "./data-service";
 
 const authOptions = {
   // Configure one or more authentication providers
+  // debug: true,
 
   providers: [
     GoogleProvider({
@@ -14,24 +15,19 @@ const authOptions = {
   ],
   callbacks: {
     authorized({ auth, request }) {
+      console.log("hi from authorized callback");
       return !!auth?.user; //!! will convert any value to boolean
     },
     async signIn({ user, account, profile }) {
-      console.log(user);
+      console.log("hi from signIn callback");
       try {
         const existingGuest = await getGuest(user.email);
         if (!existingGuest)
           await createGuest({ email: user.email, fullName: user.name });
-
         return true;
       } catch {
         return false;
       }
-    },
-    async session({ session, user }) {
-      const guest = getGuest(session.user.email);
-      session.user.guestId = guest.id;
-      return session;
     },
   },
   pages: {
